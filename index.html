@@ -1,0 +1,1688 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LinguaBridge - Professional Translation Services</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/all.min.css"
+    />
+    <style>
+      :root {
+        --primary-color: #667eea;
+        --secondary-color: #764ba2;
+        --accent-color: #ff6b6b;
+        --success-color: #4caf50;
+        --warning-color: #ff9800;
+        --error-color: #f44336;
+        --text-dark: #333;
+        --text-light: #666;
+        --bg-light: #f8f9fa;
+        --border-radius: 15px;
+        --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        color: var(--text-dark);
+        background: linear-gradient(
+          135deg,
+          var(--primary-color) 0%,
+          var(--secondary-color) 100%
+        );
+        min-height: 100vh;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      /* Header */
+      header {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(20px);
+        padding: 1rem 0;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        transition: var(--transition);
+      }
+
+      nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo {
+        font-size: 1.8rem;
+        font-weight: bold;
+        color: white;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .logo::before {
+        content: "🌐";
+        font-size: 2rem;
+      }
+
+      .nav-links {
+        display: flex;
+        list-style: none;
+        gap: 2rem;
+        align-items: center;
+      }
+
+      .nav-links a {
+        color: white;
+        text-decoration: none;
+        font-weight: 500;
+        transition: var(--transition);
+        padding: 0.5rem 1rem;
+        border-radius: 25px;
+      }
+
+      .nav-links a:hover {
+        background: rgba(255, 255, 255, 0.2);
+        transform: translateY(-2px);
+      }
+
+      .cta-button {
+        background: linear-gradient(45deg, var(--accent-color), #ffa500);
+        color: white !important;
+        padding: 0.8rem 1.5rem !important;
+        border-radius: 50px;
+        font-weight: bold;
+        text-decoration: none;
+        transition: var(--transition);
+        box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+      }
+
+      .cta-button:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 6px 25px rgba(255, 107, 107, 0.4);
+      }
+
+      /* Hero Section */
+      .hero {
+        text-align: center;
+        padding: 6rem 0 4rem;
+        color: white;
+      }
+
+      .hero h1 {
+        font-size: clamp(2.5rem, 5vw, 4rem);
+        margin-bottom: 1rem;
+        font-weight: 700;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+      }
+
+      .hero p {
+        font-size: 1.3rem;
+        margin-bottom: 2rem;
+        opacity: 0.9;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .trust-indicators {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        margin: 2rem 0;
+        flex-wrap: wrap;
+      }
+
+      .trust-item {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: white;
+        font-weight: 500;
+        padding: 0.8rem 1.2rem;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 50px;
+        backdrop-filter: blur(10px);
+        transition: var(--transition);
+      }
+
+      .trust-item:hover {
+        transform: translateY(-3px);
+        background: rgba(255, 255, 255, 0.2);
+      }
+
+      .trust-item::before {
+        content: "✓";
+        background: var(--success-color);
+        color: white;
+        border-radius: 50%;
+        width: 20px;
+        height: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.7rem;
+      }
+
+      /* Quote Calculator Section */
+      .quote-section {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(20px);
+        padding: 4rem 0;
+        margin: 2rem 0;
+        border-radius: 30px;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        color: white;
+      }
+
+      .quote-section h2 {
+        text-align: center;
+        font-size: 2.2rem;
+        margin-bottom: 1rem;
+        color: #ffa500;
+      }
+
+      .quote-subtitle {
+        text-align: center;
+        font-size: 1.1rem;
+        opacity: 0.9;
+        margin-bottom: 3rem;
+        max-width: 500px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .calculator-container {
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .calculator-form {
+        background: rgba(255, 255, 255, 0.1);
+        padding: 2.5rem;
+        border-radius: 20px;
+        backdrop-filter: blur(15px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+      }
+
+      .form-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .form-group {
+        margin-bottom: 1.5rem;
+      }
+
+      .form-group label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-weight: 500;
+        color: white;
+        font-size: 0.95rem;
+      }
+
+      .form-group select,
+      .form-group input {
+        width: 100%;
+        padding: 0.9rem;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        border-radius: 10px;
+        background: rgba(255, 255, 255, 0.1);
+        color: white;
+        font-size: 1rem;
+        backdrop-filter: blur(5px);
+        transition: var(--transition);
+      }
+
+      .form-group select:focus,
+      .form-group input:focus {
+        outline: none;
+        border-color: #ffa500;
+        box-shadow: 0 0 0 3px rgba(255, 165, 0, 0.2);
+      }
+
+      .form-group input::placeholder {
+        color: rgba(255, 255, 255, 0.7);
+      }
+
+      .form-group small {
+        opacity: 0.8;
+        font-size: 0.8rem;
+        margin-top: 0.3rem;
+        display: block;
+      }
+
+      /* Calculate Button */
+      .calculate-btn {
+        background: linear-gradient(45deg, var(--accent-color), #ffa500);
+        color: white;
+        padding: 1.2rem 3rem;
+        border: none;
+        border-radius: 50px;
+        font-size: 1.2rem;
+        font-weight: bold;
+        cursor: pointer;
+        transition: var(--transition);
+        width: 100%;
+        box-shadow: 0 6px 20px rgba(255, 107, 107, 0.4);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        margin-top: 1rem;
+      }
+
+      .calculate-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 30px rgba(255, 107, 107, 0.5);
+      }
+
+      .calculate-btn:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+        transform: none;
+      }
+
+      /* Quote Display */
+      .quote-display {
+        background: linear-gradient(135deg, #4caf50, #45a049);
+        padding: 2.5rem;
+        border-radius: 20px;
+        margin: 2rem 0;
+        text-align: center;
+        display: none;
+        color: white;
+        box-shadow: 0 10px 30px rgba(76, 175, 80, 0.4);
+      }
+
+      .quote-display.show {
+        display: block;
+        animation: slideInUp 0.6s ease-out;
+      }
+
+      @keyframes slideInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .quote-header {
+        margin-bottom: 2rem;
+      }
+
+      .quote-header h3 {
+        font-size: 1.8rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .quote-breakdown {
+        background: rgba(255, 255, 255, 0.15);
+        padding: 2rem;
+        border-radius: 15px;
+        margin-bottom: 2rem;
+        text-align: left;
+      }
+
+      .quote-line {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 1rem;
+        font-size: 1.1rem;
+        align-items: center;
+      }
+
+      .quote-line.total {
+        border-top: 2px solid rgba(255, 255, 255, 0.3);
+        padding-top: 1rem;
+        margin-top: 1.5rem;
+        font-weight: bold;
+        font-size: 1.3rem;
+      }
+
+      .quote-total-price {
+        font-size: 3rem;
+        font-weight: bold;
+        color: #ffa500;
+        margin: 1.5rem 0;
+        text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+      }
+
+      /* Invoice Section */
+      .invoice-section {
+        background: rgba(255, 255, 255, 0.1);
+        padding: 2rem;
+        border-radius: 15px;
+        margin-top: 2rem;
+        text-align: center;
+      }
+
+      .invoice-buttons {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin: 1.5rem 0;
+      }
+
+      .invoice-btn {
+        padding: 1rem 2rem;
+        border: none;
+        border-radius: 50px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: var(--transition);
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        text-decoration: none;
+      }
+
+      .invoice-btn.primary {
+        background: linear-gradient(45deg, #2196f3, #1976d2);
+        color: white;
+        box-shadow: 0 4px 15px rgba(33, 150, 243, 0.3);
+      }
+
+      .invoice-btn.secondary {
+        background: rgba(255, 255, 255, 0.2);
+        color: white;
+        border: 2px solid rgba(255, 255, 255, 0.3);
+      }
+
+      .invoice-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+      }
+
+      /* Contact Section */
+      .quote-contact {
+        background: rgba(255, 255, 255, 0.1);
+        padding: 2rem;
+        border-radius: 15px;
+        margin-top: 1rem;
+        text-align: center;
+      }
+
+      .contact-intro {
+        margin-bottom: 2rem;
+      }
+
+      .contact-intro h4 {
+        font-size: 1.4rem;
+        margin-bottom: 0.5rem;
+        color: #ffa500;
+      }
+
+      .contact-buttons {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-bottom: 1.5rem;
+      }
+
+      .contact-btn {
+        padding: 1rem 2rem;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: bold;
+        transition: var(--transition);
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        min-width: 150px;
+        justify-content: center;
+      }
+
+      .contact-btn.primary {
+        background: linear-gradient(45deg, var(--accent-color), #ffa500);
+        color: white;
+        box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+      }
+
+      .contact-btn.secondary {
+        background: rgba(255, 255, 255, 0.2);
+        color: white;
+        border: 2px solid rgba(255, 255, 255, 0.3);
+      }
+
+      .contact-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 6px 25px rgba(0, 0, 0, 0.2);
+      }
+
+      .contact-details {
+        background: rgba(255, 255, 255, 0.1);
+        padding: 1.5rem;
+        border-radius: 10px;
+        font-size: 0.95rem;
+        line-height: 1.8;
+      }
+
+      .contact-details strong {
+        color: #ffa500;
+      }
+
+      /* Services Section */
+      .services {
+        background: white;
+        padding: 6rem 0;
+        margin-top: 4rem;
+      }
+
+      .services h2 {
+        text-align: center;
+        font-size: 2.2rem;
+        margin-bottom: 3rem;
+        color: var(--text-dark);
+      }
+
+      .services-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+      }
+
+      .service-card {
+        background: linear-gradient(135deg, #ffffff, #f8f9fa);
+        padding: 2rem;
+        border-radius: var(--border-radius);
+        text-align: center;
+        transition: var(--transition);
+        border: 1px solid #e9ecef;
+        box-shadow: var(--shadow);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .service-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(
+          45deg,
+          var(--primary-color),
+          var(--secondary-color)
+        );
+      }
+
+      .service-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+      }
+
+      .service-icon {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        display: block;
+      }
+
+      .service-card h3 {
+        font-size: 1.3rem;
+        margin-bottom: 1rem;
+        color: var(--text-dark);
+      }
+
+      .service-card p {
+        color: var(--text-light);
+        line-height: 1.5;
+        font-size: 0.95rem;
+      }
+
+      /* Language Section */
+      .language-section {
+        text-align: center;
+        margin: 4rem 0;
+        padding: 3rem;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 20px;
+        backdrop-filter: blur(10px);
+      }
+
+      .language-section h3 {
+        margin-bottom: 2rem;
+        color: white;
+        font-size: 1.8rem;
+      }
+
+      .language-badges {
+        display: flex;
+        justify-content: center;
+        gap: 1.5rem;
+        flex-wrap: wrap;
+      }
+
+      .language-badge {
+        background: linear-gradient(
+          45deg,
+          var(--primary-color),
+          var(--secondary-color)
+        );
+        color: white;
+        padding: 1rem 1.5rem;
+        border-radius: 50px;
+        font-weight: bold;
+        font-size: 1rem;
+      }
+
+      /* Footer */
+      footer {
+        background: #2c3e50;
+        color: white;
+        padding: 3rem 0 2rem;
+        margin-top: 4rem;
+      }
+
+      .footer-content {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+        margin-bottom: 2rem;
+      }
+
+      .footer-section h3 {
+        margin-bottom: 1rem;
+        color: #ffa500;
+      }
+
+      .footer-section p {
+        margin-bottom: 0.5rem;
+        font-size: 0.9rem;
+      }
+
+      .footer-section a {
+        color: white;
+        text-decoration: none;
+        transition: var(--transition);
+      }
+
+      .footer-section a:hover {
+        color: #ffa500;
+      }
+
+      .footer-bottom {
+        border-top: 1px solid #34495e;
+        padding-top: 2rem;
+        text-align: center;
+        font-size: 0.9rem;
+      }
+
+      /* Mobile Menu */
+      .mobile-menu-toggle {
+        display: none;
+        background: none;
+        border: none;
+        color: white;
+        font-size: 1.5rem;
+        cursor: pointer;
+      }
+
+      /* Hidden Invoice Content */
+      .invoice-content {
+        display: none;
+      }
+
+      /* Mobile Responsive */
+      @media (max-width: 768px) {
+        .mobile-menu-toggle {
+          display: block;
+        }
+
+        .nav-links {
+          display: none;
+          position: absolute;
+          top: 100%;
+          left: 0;
+          width: 100%;
+          background: rgba(0, 0, 0, 0.95);
+          backdrop-filter: blur(20px);
+          flex-direction: column;
+          padding: 2rem;
+          gap: 1rem;
+        }
+
+        .nav-links.active {
+          display: flex;
+        }
+
+        .hero {
+          padding: 4rem 0 2rem;
+        }
+
+        .form-row {
+          grid-template-columns: 1fr;
+        }
+
+        .trust-indicators {
+          gap: 1rem;
+        }
+
+        .services-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .contact-buttons,
+        .invoice-buttons {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .contact-btn,
+        .invoice-btn {
+          width: 100%;
+          max-width: 250px;
+        }
+
+        .language-badges {
+          flex-direction: column;
+          align-items: center;
+          gap: 1rem;
+        }
+
+        .quote-section {
+          margin: 1rem 0;
+          padding: 2rem 0;
+        }
+
+        .calculator-form {
+          padding: 1.5rem;
+        }
+
+        .quote-total-price {
+          font-size: 2.5rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <nav class="container">
+        <div class="logo">LinguaBridge</div>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#quote">Quote</a></li>
+          <li><a href="#services">Services</a></li>
+          <li>
+            <a href="tel:(925) 548-7972" class="cta-button">
+              <i class="fas fa-phone"></i> (925) 548-7972
+            </a>
+          </li>
+        </ul>
+        <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+          <i class="fas fa-bars"></i>
+        </button>
+      </nav>
+    </header>
+
+    <main>
+      <!-- Hero Section -->
+      <section id="home" class="hero">
+        <div class="container">
+          <h1>Professional Translation Services</h1>
+          <p>
+            Expert Pashto, Dari & Urdu Translation for Legal, Medical & Business
+            Needs
+          </p>
+
+          <div class="trust-indicators">
+            <div class="trust-item">Certified Translators</div>
+            <div class="trust-item">24/7 Emergency Service</div>
+            <div class="trust-item">100% Confidential</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Quote Calculator Section -->
+      <section id="quote" class="container">
+        <div class="quote-section">
+          <h2><i class="fas fa-calculator"></i> Instant Quote Calculator</h2>
+          <p class="quote-subtitle">
+            Get accurate pricing for your translation or interpretation needs in
+            seconds
+          </p>
+
+          <div class="calculator-container">
+            <div class="calculator-form">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="sourceLanguage">
+                    <i class="fas fa-language"></i> From Language *
+                  </label>
+                  <select id="sourceLanguage" required>
+                    <option value="">Select source language</option>
+                    <option value="pashto">Pashto</option>
+                    <option value="dari">Dari</option>
+                    <option value="urdu">Urdu</option>
+                    <option value="english">English</option>
+                    <option value="arabic">Arabic</option>
+                    <option value="farsi">Farsi/Persian</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="targetLanguage">
+                    <i class="fas fa-language"></i> To Language *
+                  </label>
+                  <select id="targetLanguage" required>
+                    <option value="">Select target language</option>
+                    <option value="english">English</option>
+                    <option value="pashto">Pashto</option>
+                    <option value="dari">Dari</option>
+                    <option value="urdu">Urdu</option>
+                    <option value="arabic">Arabic</option>
+                    <option value="farsi">Farsi/Persian</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="serviceType">
+                  <i class="fas fa-cogs"></i> Service Type *
+                </label>
+                <select id="serviceType" required>
+                  <option value="">Select service type</option>
+                  <optgroup label="📄 Document Translation">
+                    <option value="document-legal">
+                      Legal Document Translation
+                    </option>
+                    <option value="document-medical">
+                      Medical Document Translation
+                    </option>
+                    <option value="document-business">
+                      Business Document Translation
+                    </option>
+                    <option value="document-academic">
+                      Academic Document Translation
+                    </option>
+                    <option value="document-personal">
+                      Personal Document Translation
+                    </option>
+                    <option value="document-government">
+                      Government Document Translation
+                    </option>
+                  </optgroup>
+                  <optgroup label="🗣️ Live Interpretation">
+                    <option value="interpretation-phone">
+                      Phone Interpretation (24/7)
+                    </option>
+                    <option value="interpretation-video">
+                      Video Interpretation (Zoom/Teams)
+                    </option>
+                    <option value="interpretation-onsite">
+                      On-Site Interpretation
+                    </option>
+                    <option value="interpretation-medical">
+                      Medical Appointment Interpretation
+                    </option>
+                    <option value="interpretation-legal">
+                      Legal/Court Interpretation
+                    </option>
+                    <option value="interpretation-business">
+                      Business Meeting Interpretation
+                    </option>
+                    <option value="interpretation-emergency">
+                      Emergency Interpretation (24/7)
+                    </option>
+                  </optgroup>
+                  <optgroup label="🏥 Specialized Services">
+                    <option value="medical-consultation">
+                      Medical Consultation Interpretation
+                    </option>
+                    <option value="court-certified">
+                      Court-Certified Translation
+                    </option>
+                    <option value="immigration-services">
+                      Immigration Services
+                    </option>
+                  </optgroup>
+                </select>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="urgency">
+                    <i class="fas fa-clock"></i> Timeline *
+                  </label>
+                  <select id="urgency" required>
+                    <option value="">Select timeline</option>
+                    <option value="emergency">
+                      Emergency (24 hours) - 2x rate
+                    </option>
+                    <option value="rush">Rush (2-3 days) - 1.5x rate</option>
+                    <option value="standard">
+                      Standard (1 week) - Normal rate
+                    </option>
+                    <option value="flexible">
+                      Flexible (2+ weeks) - 20% discount
+                    </option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="quantity">
+                    <i class="fas fa-sort-numeric-up"></i>
+                    <span id="quantityLabel">Word Count / Duration</span> *
+                  </label>
+                  <input
+                    type="number"
+                    id="quantity"
+                    placeholder="Enter number"
+                    required
+                    min="1"
+                  />
+                  <small id="quantityHelp"
+                    >For documents: word count. For interpretation: hours</small
+                  >
+                </div>
+              </div>
+
+              <!-- Calculate Button -->
+              <button
+                type="button"
+                class="calculate-btn"
+                onclick="calculateQuote()"
+              >
+                <i class="fas fa-calculator"></i> Calculate Quote
+              </button>
+            </div>
+
+            <!-- Quote Display -->
+            <div id="quoteDisplay" class="quote-display">
+              <div class="quote-header">
+                <h3><i class="fas fa-receipt"></i> Your Professional Quote</h3>
+                <p>
+                  Quote #<span id="quoteNumber"></span> |
+                  <span id="quoteDate"></span>
+                </p>
+              </div>
+
+              <div class="quote-breakdown" id="quoteBreakdown">
+                <!-- Dynamic content will be inserted here -->
+              </div>
+
+              <div class="quote-total-price" id="quoteTotalPrice">$0.00</div>
+
+              <!-- Invoice Section -->
+              <div class="invoice-section">
+                <h4>
+                  <i class="fas fa-file-invoice-dollar"></i> Professional
+                  Invoice
+                </h4>
+                <p>
+                  Generate and send a professional invoice to proceed with your
+                  order
+                </p>
+
+                <div class="invoice-buttons">
+                  <button
+                    class="invoice-btn primary"
+                    onclick="generateInvoice()"
+                  >
+                    <i class="fas fa-file-pdf"></i> Generate Invoice PDF
+                  </button>
+                  <button
+                    class="invoice-btn secondary"
+                    onclick="emailInvoice()"
+                  >
+                    <i class="fas fa-envelope"></i> Email Invoice
+                  </button>
+                  <button class="invoice-btn secondary" onclick="copyInvoice()">
+                    <i class="fas fa-copy"></i> Copy Invoice Text
+                  </button>
+                </div>
+              </div>
+
+              <!-- Contact Section -->
+              <div class="quote-contact">
+                <div class="contact-intro">
+                  <h4>
+                    <i class="fas fa-handshake"></i> Ready to Get Started?
+                  </h4>
+                  <p>
+                    Contact us now to confirm your quote and schedule your
+                    service
+                  </p>
+                </div>
+
+                <div class="contact-buttons">
+                  <a href="tel:(925) 548-7972" class="contact-btn primary">
+                    <i class="fas fa-phone"></i> Call Now
+                  </a>
+                  <a href="sms:(925) 548-7972" class="contact-btn secondary">
+                    <i class="fas fa-sms"></i> Text Us
+                  </a>
+                  <a
+                    href="mailto:linguabridgetranslation3@gmail.com"
+                    class="contact-btn secondary"
+                  >
+                    <i class="fas fa-envelope"></i> Email Us
+                  </a>
+                </div>
+
+                <div class="contact-details">
+                  <strong>📞 Phone & Text:</strong> (925) 548-7972<br />
+                  <strong>📧 Email:</strong>
+                  linguabridgetranslation3@gmail.com<br />
+                  <strong>🚨 Emergency Service:</strong> Available 24/7<br />
+                  <strong>💼 Licensed & Insured</strong> | Professional
+                  Translation Services
+                </div>
+              </div>
+            </div>
+
+            <!-- Hidden Invoice Content for Generation -->
+            <div id="invoiceContent" class="invoice-content">
+              <!-- Invoice template will be populated here -->
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Available Languages -->
+      <section class="container">
+        <div class="language-section">
+          <h3>Available Language Pairs</h3>
+          <div class="language-badges">
+            <div class="language-badge">🇦🇫 Pashto ⟷ English</div>
+            <div class="language-badge">🇦🇫 Dari ⟷ English</div>
+            <div class="language-badge">🇵🇰 Urdu ⟷ English</div>
+            <div class="language-badge">🇸🇦 Arabic ⟷ English</div>
+            <div class="language-badge">🇮🇷 Farsi ⟷ English</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Services Section -->
+      <section id="services" class="services">
+        <div class="container">
+          <h2>Our Professional Services</h2>
+          <div class="services-grid">
+            <div class="service-card">
+              <div class="service-icon">📄</div>
+              <h3>Document Translation</h3>
+              <p>
+                Professional translation of legal, medical, business, and
+                personal documents with certified accuracy and fast turnaround.
+              </p>
+            </div>
+
+            <div class="service-card">
+              <div class="service-icon">📞</div>
+              <h3>Phone Interpretation</h3>
+              <p>
+                Immediate phone interpretation services available 24/7 for
+                urgent communication needs in healthcare, legal, and business.
+              </p>
+            </div>
+
+            <div class="service-card">
+              <div class="service-icon">💻</div>
+              <h3>Video Interpretation</h3>
+              <p>
+                Live video interpretation via Zoom, Teams, or other platforms
+                for meetings, consultations, and virtual appointments.
+              </p>
+            </div>
+
+            <div class="service-card">
+              <div class="service-icon">🏥</div>
+              <h3>Medical Interpretation</h3>
+              <p>
+                Specialized medical interpretation for doctor visits, hospital
+                stays, surgery consultations, and mental health sessions.
+              </p>
+            </div>
+
+            <div class="service-card">
+              <div class="service-icon">⚖️</div>
+              <h3>Legal Interpretation</h3>
+              <p>
+                Court-certified legal interpretation for depositions, trials,
+                immigration interviews, and attorney-client consultations.
+              </p>
+            </div>
+
+            <div class="service-card">
+              <div class="service-icon">🏢</div>
+              <h3>On-Site Interpretation</h3>
+              <p>
+                Professional interpreters available for in-person assignments
+                throughout the Bay Area and Northern California.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-section">
+            <h3>Contact Information</h3>
+            <p>
+              <i class="fas fa-phone"></i>
+              <a href="tel:(925) 548-7972">(925) 548-7972</a>
+            </p>
+            <p>
+              <i class="fas fa-envelope"></i>
+              <a href="mailto:linguabridgetranslation3@gmail.com"
+                >linguabridgetranslation3@gmail.com</a
+              >
+            </p>
+            <p><i class="fas fa-clock"></i> 24/7 Emergency Service</p>
+            <p>
+              <i class="fas fa-map-marker-alt"></i> Bay Area & Northern
+              California
+            </p>
+          </div>
+          <div class="footer-section">
+            <h3>Our Services</h3>
+            <p>Document Translation</p>
+            <p>Phone Interpretation</p>
+            <p>Video Interpretation</p>
+            <p>Medical Interpretation</p>
+            <p>Legal Interpretation</p>
+            <p>Emergency Services</p>
+          </div>
+          <div class="footer-section">
+            <h3>Industries We Serve</h3>
+            <p>Healthcare & Medical</p>
+            <p>Legal & Court Services</p>
+            <p>Business & Corporate</p>
+            <p>Government Agencies</p>
+            <p>Educational Institutions</p>
+            <p>Immigration Services</p>
+          </div>
+          <div class="footer-section">
+            <h3>Languages</h3>
+            <p>🇦🇫 Pashto ⟷ English</p>
+            <p>🇦🇫 Dari ⟷ English</p>
+            <p>🇵🇰 Urdu ⟷ English</p>
+            <p>🇸🇦 Arabic ⟷ English</p>
+            <p>🇮🇷 Farsi ⟷ English</p>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>
+            &copy; 2024 LinguaBridge Translation Services. All rights reserved.
+            | Licensed & Insured | Professional Translation & Interpretation
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+      let currentQuote = null;
+      let quoteCounter = 1000;
+
+      // Initialize when page loads
+      document.addEventListener("DOMContentLoaded", function () {
+        initializeWebsite();
+      });
+
+      function initializeWebsite() {
+        setupMobileMenu();
+        setupSmoothScrolling();
+        updateQuantityLabels();
+      }
+
+      function setupMobileMenu() {
+        window.toggleMobileMenu = function () {
+          const navLinks = document.getElementById("navLinks");
+          navLinks.classList.toggle("active");
+        };
+      }
+
+      function setupSmoothScrolling() {
+        document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+          anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute("href"));
+            if (target) {
+              target.scrollIntoView({
+                behavior: "smooth",
+                block: "start",
+              });
+              document.getElementById("navLinks").classList.remove("active");
+            }
+          });
+        });
+      }
+
+      function updateQuantityLabels() {
+        const serviceType = document.getElementById("serviceType");
+        const quantityLabel = document.getElementById("quantityLabel");
+        const quantityHelp = document.getElementById("quantityHelp");
+        const quantityInput = document.getElementById("quantity");
+
+        serviceType.addEventListener("change", function () {
+          const isInterpretation =
+            this.value.includes("interpretation") ||
+            this.value.includes("consultation");
+
+          if (isInterpretation) {
+            quantityLabel.textContent = "Duration (Hours)";
+            quantityHelp.textContent =
+              "Enter number of hours needed (e.g., 1, 2, 3)";
+            quantityInput.placeholder = "Enter hours (e.g., 2)";
+          } else {
+            quantityLabel.textContent = "Word Count";
+            quantityHelp.textContent =
+              "Enter approximate number of words (e.g., 500, 1000)";
+            quantityInput.placeholder = "Enter word count (e.g., 500)";
+          }
+        });
+      }
+
+      function calculateQuote() {
+        const sourceLanguage = document.getElementById("sourceLanguage").value;
+        const targetLanguage = document.getElementById("targetLanguage").value;
+        const serviceType = document.getElementById("serviceType").value;
+        const urgency = document.getElementById("urgency").value;
+        const quantity = document.getElementById("quantity").value;
+
+        // Validation
+        if (
+          !sourceLanguage ||
+          !targetLanguage ||
+          !serviceType ||
+          !urgency ||
+          !quantity
+        ) {
+          alert("Please fill in all required fields to calculate your quote.");
+          return;
+        }
+
+        if (quantity <= 0) {
+          alert("Please enter a valid quantity greater than 0.");
+          return;
+        }
+
+        const quote = generateQuote({
+          sourceLanguage,
+          targetLanguage,
+          serviceType,
+          urgency,
+          quantity: parseFloat(quantity),
+        });
+
+        currentQuote = quote;
+        displayQuote(quote);
+      }
+
+      function generateQuote(data) {
+        const isInterpretation =
+          data.serviceType.includes("interpretation") ||
+          data.serviceType.includes("consultation");
+
+        if (isInterpretation) {
+          return calculateInterpretationQuote(data);
+        } else {
+          return calculateDocumentQuote(data);
+        }
+      }
+
+      function calculateDocumentQuote(data) {
+        // Base rates per word by language pair
+        const baseRates = {
+          "pashto-english": 0.22,
+          "dari-english": 0.2,
+          "urdu-english": 0.18,
+          "english-pashto": 0.25,
+          "english-dari": 0.23,
+          "english-urdu": 0.21,
+          "arabic-english": 0.2,
+          "farsi-english": 0.19,
+        };
+
+        const languagePair = data.sourceLanguage + "-" + data.targetLanguage;
+        let baseRate = baseRates[languagePair] || 0.2;
+
+        // Service type multipliers
+        const serviceMultipliers = {
+          "document-legal": 1.4,
+          "document-medical": 1.5,
+          "document-business": 1.0,
+          "document-academic": 1.2,
+          "document-personal": 0.9,
+          "document-government": 1.3,
+          "court-certified": 1.6,
+          "immigration-services": 1.3,
+        };
+
+        baseRate *= serviceMultipliers[data.serviceType] || 1.0;
+
+        // Urgency multipliers
+        const urgencyMultipliers = {
+          emergency: 2.0,
+          rush: 1.5,
+          standard: 1.0,
+          flexible: 0.8,
+        };
+
+        baseRate *= urgencyMultipliers[data.urgency] || 1.0;
+
+        const wordCount = data.quantity;
+        const subtotal = baseRate * wordCount;
+        const tax = subtotal * 0.0875; // CA tax rate
+        const total = subtotal + tax;
+
+        return {
+          type: "document",
+          quoteNumber: ++quoteCounter,
+          date: new Date().toLocaleDateString(),
+          wordCount: wordCount,
+          baseRate: baseRate,
+          subtotal: subtotal,
+          tax: tax,
+          total: total,
+          languagePair: formatLanguagePair(
+            data.sourceLanguage,
+            data.targetLanguage
+          ),
+          serviceType: formatServiceType(data.serviceType),
+          urgency: data.urgency,
+          urgencyLabel: getUrgencyLabel(data.urgency),
+        };
+      }
+
+      function calculateInterpretationQuote(data) {
+        // Base hourly rates by language pair
+        const hourlyRates = {
+          "pashto-english": 85,
+          "dari-english": 80,
+          "urdu-english": 75,
+          "english-pashto": 85,
+          "english-dari": 80,
+          "english-urdu": 75,
+          "arabic-english": 80,
+          "farsi-english": 78,
+        };
+
+        const languagePair = data.sourceLanguage + "-" + data.targetLanguage;
+        let hourlyRate = hourlyRates[languagePair] || 80;
+
+        // Service type multipliers
+        const serviceMultipliers = {
+          "interpretation-phone": 1.0,
+          "interpretation-video": 1.1,
+          "interpretation-onsite": 1.3,
+          "interpretation-medical": 1.4,
+          "interpretation-legal": 1.5,
+          "interpretation-business": 1.2,
+          "interpretation-emergency": 2.0,
+          "medical-consultation": 1.4,
+        };
+
+        hourlyRate *= serviceMultipliers[data.serviceType] || 1.0;
+
+        // Urgency multipliers
+        const urgencyMultipliers = {
+          emergency: 1.8,
+          rush: 1.3,
+          standard: 1.0,
+          flexible: 0.9,
+        };
+
+        hourlyRate *= urgencyMultipliers[data.urgency] || 1.0;
+
+        const duration = data.quantity;
+        const subtotal = hourlyRate * duration;
+        const tax = subtotal * 0.0875; // CA tax rate
+        const total = subtotal + tax;
+
+        return {
+          type: "interpretation",
+          quoteNumber: ++quoteCounter,
+          date: new Date().toLocaleDateString(),
+          duration: duration,
+          hourlyRate: hourlyRate,
+          subtotal: subtotal,
+          tax: tax,
+          total: total,
+          languagePair: formatLanguagePair(
+            data.sourceLanguage,
+            data.targetLanguage
+          ),
+          serviceType: formatServiceType(data.serviceType),
+          urgency: data.urgency,
+          urgencyLabel: getUrgencyLabel(data.urgency),
+        };
+      }
+
+      function formatLanguagePair(source, target) {
+        const capitalize = (str) => str.charAt(0).toUpperCase() + str.slice(1);
+        return capitalize(source) + " → " + capitalize(target);
+      }
+
+      function formatServiceType(serviceType) {
+        return serviceType
+          .replace(/-/g, " ")
+          .replace(/\b\w/g, (l) => l.toUpperCase());
+      }
+
+      function getUrgencyLabel(urgency) {
+        const labels = {
+          emergency: "Emergency (24 hours)",
+          rush: "Rush (2-3 days)",
+          standard: "Standard (1 week)",
+          flexible: "Flexible (2+ weeks)",
+        };
+        return labels[urgency] || urgency;
+      }
+
+      function displayQuote(quote) {
+        const display = document.getElementById("quoteDisplay");
+        const breakdown = document.getElementById("quoteBreakdown");
+        const total = document.getElementById("quoteTotalPrice");
+        const quoteNumber = document.getElementById("quoteNumber");
+        const quoteDate = document.getElementById("quoteDate");
+
+        // Set quote info
+        quoteNumber.textContent = quote.quoteNumber;
+        quoteDate.textContent = quote.date;
+
+        let breakdownHTML = "";
+
+        // Service details
+        breakdownHTML += `
+                <div class="quote-line">
+                    <span><i class="fas fa-language"></i> Language Pair:</span>
+                    <span>${quote.languagePair}</span>
+                </div>
+                <div class="quote-line">
+                    <span><i class="fas fa-cogs"></i> Service Type:</span>
+                    <span>${quote.serviceType}</span>
+                </div>
+                <div class="quote-line">
+                    <span><i class="fas fa-clock"></i> Timeline:</span>
+                    <span>${quote.urgencyLabel}</span>
+                </div>
+            `;
+
+        if (quote.type === "interpretation") {
+          breakdownHTML += `
+                    <div class="quote-line">
+                        <span><i class="fas fa-hourglass-half"></i> Duration:</span>
+                        <span>${quote.duration} hour(s)</span>
+                    </div>
+                    <div class="quote-line">
+                        <span><i class="fas fa-dollar-sign"></i> Rate per Hour:</span>
+                        <span>${Math.round(quote.hourlyRate)}</span>
+                    </div>
+                    <div class="quote-line">
+                        <span><i class="fas fa-calculator"></i> Subtotal:</span>
+                        <span>${quote.subtotal.toFixed(2)}</span>
+                    </div>
+                `;
+        } else {
+          breakdownHTML += `
+                    <div class="quote-line">
+                        <span><i class="fas fa-file-word"></i> Word Count:</span>
+                        <span>${quote.wordCount.toLocaleString()} words</span>
+                    </div>
+                    <div class="quote-line">
+                        <span><i class="fas fa-dollar-sign"></i> Rate per Word:</span>
+                        <span>${quote.baseRate.toFixed(3)}</span>
+                    </div>
+                    <div class="quote-line">
+                        <span><i class="fas fa-calculator"></i> Subtotal:</span>
+                        <span>${quote.subtotal.toFixed(2)}</span>
+                    </div>
+                `;
+        }
+
+        breakdownHTML += `
+                <div class="quote-line">
+                    <span><i class="fas fa-percentage"></i> Tax (8.75%):</span>
+                    <span>${quote.tax.toFixed(2)}</span>
+                </div>
+                <div class="quote-line total">
+                    <span><strong>Total Amount:</strong></span>
+                    <span><strong>${quote.total.toFixed(2)}</strong></span>
+                </div>
+            `;
+
+        breakdown.innerHTML = breakdownHTML;
+        total.textContent = `${quote.total.toFixed(2)}`;
+
+        // Show display with animation
+        display.classList.add("show");
+        display.scrollIntoView({ behavior: "smooth", block: "center" });
+      }
+
+      function generateInvoice() {
+        if (!currentQuote) {
+          alert("Please calculate a quote first.");
+          return;
+        }
+
+        const invoice = createInvoiceContent(currentQuote);
+
+        // Create a new window/tab with the invoice
+        const invoiceWindow = window.open("", "_blank");
+        invoiceWindow.document.write(invoice);
+        invoiceWindow.document.close();
+        invoiceWindow.print();
+      }
+
+      function emailInvoice() {
+        if (!currentQuote) {
+          alert("Please calculate a quote first.");
+          return;
+        }
+
+        const subject = `LinguaBridge Translation Quote #${currentQuote.quoteNumber}`;
+        const body = createEmailInvoiceBody(currentQuote);
+
+        const mailtoLink = `mailto:?subject=${encodeURIComponent(
+          subject
+        )}&body=${encodeURIComponent(body)}`;
+        window.location.href = mailtoLink;
+      }
+
+      function copyInvoice() {
+        if (!currentQuote) {
+          alert("Please calculate a quote first.");
+          return;
+        }
+
+        const invoiceText = createTextInvoice(currentQuote);
+
+        navigator.clipboard
+          .writeText(invoiceText)
+          .then(() => {
+            alert(
+              "Invoice copied to clipboard! You can now paste it in an email or document."
+            );
+          })
+          .catch(() => {
+            // Fallback for older browsers
+            const textArea = document.createElement("textarea");
+            textArea.value = invoiceText;
+            document.body.appendChild(textArea);
+            textArea.select();
+            document.execCommand("copy");
+            document.body.removeChild(textArea);
+            alert("Invoice copied to clipboard!");
+          });
+      }
+
+      function createInvoiceContent(quote) {
+        return `
+<!DOCTYPE html>
+<html>
+<head>
+    <title>LinguaBridge Invoice #${quote.quoteNumber}</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; }
+        .header { text-align: center; border-bottom: 2px solid #667eea; padding-bottom: 20px; margin-bottom: 30px; }
+        .company-info { text-align: left; margin-bottom: 30px; }
+        .invoice-details { background: #f8f9fa; padding: 20px; border-radius: 10px; margin-bottom: 30px; }
+        .line-item { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid #eee; }
+        .total { font-weight: bold; font-size: 1.2em; background: #667eea; color: white; padding: 15px; border-radius: 5px; }
+        .footer { margin-top: 40px; text-align: center; color: #666; font-size: 0.9em; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🌐 LinguaBridge Translation Services</h1>
+        <h2>Professional Invoice</h2>
+    </div>
+    
+    <div class="company-info">
+        <strong>LinguaBridge Translation Services</strong><br>
+        Phone: (925) 548-7972<br>
+        Email: linguabridgetranslation3@gmail.com<br>
+        Service Area: Bay Area & Northern California<br>
+        Licensed & Insured Professional Translation Services
+    </div>
+    
+    <div class="invoice-details">
+        <h3>Invoice Details</h3>
+        <p><strong>Invoice #:</strong> ${quote.quoteNumber}</p>
+        <p><strong>Date:</strong> ${quote.date}</p>
+        <p><strong>Service:</strong> ${quote.serviceType}</p>
+        <p><strong>Languages:</strong> ${quote.languagePair}</p>
+        <p><strong>Timeline:</strong> ${quote.urgencyLabel}</p>
+    </div>
+    
+    <div class="line-items">
+        <h3>Service Breakdown</h3>
+        ${
+          quote.type === "interpretation"
+            ? `<div class="line-item">
+                <span>Interpretation Service (${
+                  quote.duration
+                } hours @ ${Math.round(quote.hourlyRate)}/hour)</span>
+                <span>${quote.subtotal.toFixed(2)}</span>
+            </div>`
+            : `<div class="line-item">
+                <span>Document Translation (${quote.wordCount.toLocaleString()} words @ ${quote.baseRate.toFixed(
+                3
+              )}/word)</span>
+                <span>${quote.subtotal.toFixed(2)}</span>
+            </div>`
+        }
+        <div class="line-item">
+            <span>Tax (8.75%)</span>
+            <span>${quote.tax.toFixed(2)}</span>
+        </div>
+        <div class="line-item total">
+            <span>Total Amount</span>
+            <span>${quote.total.toFixed(2)}</span>
+        </div>
+    </div>
+    
+    <div class="footer">
+        <h3>Next Steps</h3>
+        <p>To proceed with this service:</p>
+        <p>📞 Call: (925) 548-7972 | 💬 Text: (925) 548-7972 | 📧 Email: linguabridgetranslation3@gmail.com</p>
+        <p>🚨 Emergency services available 24/7</p>
+        <br>
+        <p>Thank you for choosing LinguaBridge Translation Services!</p>
+        <p>Professional • Certified • Confidential</p>
+    </div>
+</body>
+</html>`;
+      }
+
+      function createEmailInvoiceBody(quote) {
+        return `Dear Valued Customer,
+
+Thank you for your interest in LinguaBridge Translation Services!
+
+INVOICE #${quote.quoteNumber}
+Date: ${quote.date}
+
+SERVICE DETAILS:
+• Service Type: ${quote.serviceType}
+• Languages: ${quote.languagePair}
+• Timeline: ${quote.urgencyLabel}
+${
+  quote.type === "interpretation"
+    ? `• Duration: ${quote.duration} hours
+• Rate: ${Math.round(quote.hourlyRate)}/hour`
+    : `• Word Count: ${quote.wordCount.toLocaleString()} words
+• Rate: ${quote.baseRate.toFixed(3)}/word`
+}
+
+PRICING BREAKDOWN:
+• Subtotal: ${quote.subtotal.toFixed(2)}
+• Tax (8.75%): ${quote.tax.toFixed(2)}
+• TOTAL: ${quote.total.toFixed(2)}
+
+TO PROCEED:
+📞 Call: (925) 548-7972
+💬 Text: (925) 548-7972
+📧 Email: linguabridgetranslation3@gmail.com
+
+🚨 Emergency services available 24/7
+
+Professional • Certified • Confidential
+Licensed & Insured Translation Services
+
+Best regards,
+LinguaBridge Translation Services
+Bay Area & Northern California`;
+      }
+
+      function createTextInvoice(quote) {
+        return `LINGUABRIDGE TRANSLATION SERVICES
+Professional Invoice #${quote.quoteNumber}
+
+Date: ${quote.date}
+Service: ${quote.serviceType}
+Languages: ${quote.languagePair}
+Timeline: ${quote.urgencyLabel}
+
+${
+  quote.type === "interpretation"
+    ? `Duration: ${quote.duration} hours @ ${Math.round(quote.hourlyRate)}/hour`
+    : `Word Count: ${quote.wordCount.toLocaleString()} words @ ${quote.baseRate.toFixed(
+        3
+      )}/word`
+}
+
+Subtotal: ${quote.subtotal.toFixed(2)}
+Tax (8.75%): ${quote.tax.toFixed(2)}
+TOTAL: ${quote.total.toFixed(2)}
+
+Contact us to proceed:
+Phone: (925) 548-7972
+Email: linguabridgetranslation3@gmail.com
+Emergency services available 24/7
+
+Professional • Certified • Confidential`;
+      }
+    </script>
+  </body>
+</html>
